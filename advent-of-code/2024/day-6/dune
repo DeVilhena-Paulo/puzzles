@@ -1,0 +1,5 @@
+(executable
+  (name main)
+  (libraries utils)
+  (flags (:standard -w -26-27-32-38))
+)

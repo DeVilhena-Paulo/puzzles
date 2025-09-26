@@ -12,10 +12,6 @@ Once you get `opam`, run the following command from the folder `advent-of-code` 
 $ opam switch create . ocaml-base-compiler.5.3.0
 ```
 
-(**Note.** If you prefer to create a global opam switch, then it suffices to specify a name instead of `.`.)
-
-(**Note.** To move to a global opam switch, it suffices to run `opam switch <switch-name>`, and, to move back to the local opam switch, it suffices to change to the `advent-of-code` directory and run `opam switch .`. Remember to run `eval $(opam env)` everytime you switch.)
-
 Now, install `dune` and other packages used in some of the solutions (`menhir` and `base`):
 
 ```
@@ -28,8 +24,8 @@ To build, run the following command from the directory `advent-of-code`:
 $ opam build
 ```
 
-To run a specific solution, say, the solution `2024/day-1/main.ml`, go to `2024/day-1` and run:
+To run a specific solution, say, the solution `2024/day-1/main.ml`, go to `2024/` and run:
 
 ```
-$ opam exec --no-print-directory ./main.exe
+$ opam exec --no-print-directory ./day-1/main.exe
 ```

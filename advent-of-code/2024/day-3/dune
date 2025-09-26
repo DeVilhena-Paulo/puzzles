@@ -1,0 +1,16 @@
+(ocamllex
+  (modules lexer)
+)
+
+(menhir
+  (modules parser)
+  (flags --dump)
+  (infer true)
+)
+
+(executable
+  (name main)
+  (libraries utils)
+  (promote (until-clean))
+  (flags ())
+)

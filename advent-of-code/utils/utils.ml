@@ -290,7 +290,7 @@ module String = struct
   }
 
   let to_list s = s |> to_seq |> List.of_seq
-  let to_array s = s |> to_list |> Array.of_list
+  let to_array s = s |> to_seq |> Array.of_seq
 end
 
 

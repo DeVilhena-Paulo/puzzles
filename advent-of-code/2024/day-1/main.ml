@@ -75,7 +75,7 @@ let second_puzzle_solution locations1 locations2 =
 (* ------------------------------------------------------------------------- *)
 (* Main. *)
 
-let input_filename = "input.txt"
+let input_filename = "day-1/input.txt"
 
 let main() =
   let location_lists = parse input_filename in
