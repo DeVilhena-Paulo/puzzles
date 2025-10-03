@@ -14,7 +14,7 @@ let (^.) f n = fun x ->
 
 
 (* ------------------------------------------------------------------------- *)
-(* Memoizaton. *)
+(* Memoization. *)
 
 let memoize f =
   let cache = Hashtbl.create 13 in
@@ -88,7 +88,7 @@ let pow x n =
   !result
 
 let pow x n =
-  let rec pow a x n = (* a.x^n *)
+  let rec pow a x n = (* a · (x ^ n) *)
     if n = 0 then a else
       pow (a * (if n mod 2 = 1 then x else 1)) (x * x) (n / 2)
   in
@@ -262,7 +262,7 @@ module String = struct
     while (!i < length s && CharSet.mem s.[!i] chars) do incr i done;
 
     let j = ref (length s - 1) in
-    while (0 <= !j && CharSet.mem s.[!j] chars) do decr j done;
+    while (!i <= !j && CharSet.mem s.[!j] chars) do decr j done;
 
     substr s ~pos:(!i) ~len:(!j - !i + 1)
 
@@ -301,14 +301,13 @@ module Hashtbl = struct
   include Hashtbl
 
   let find_pair (type a b) p (tbl : (a, b) Hashtbl.t) =
-    let exception Found of a * b in
-    try
+    with_return { body = fun { return } ->
       iter (fun key value ->
-        if p key value then raise (Found (key, value))
+        if p key value then
+          return (Some (key, value))
       ) tbl;
-      None
-    with Found (key, value) ->
-      Some (key, value)
+      return None
+    }
 
   let exists p tbl = Option.is_some (find_pair p tbl)
 end
@@ -502,7 +501,7 @@ module type GraphType = sig
   include Hashtbl.HashedType with type t := vertice
 
   val vertices : t -> vertice list
-  val neighbors : t -> vertice -> (vertice * int) list
+  val neighbors : t -> vertice -> (vertice * distance) list
 end
 
 
