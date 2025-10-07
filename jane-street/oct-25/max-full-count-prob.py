@@ -62,10 +62,10 @@
 # pair of orthogonal lines that are parallel to the 'u × v' plane. From (i) and
 # (iii), we conclude that there is a point '(a, a)' such that 'v ↦ f(a, v)' and
 # 'u ↦ f(u, a)' are constant. Finally, from (ii), we conclude that the optimal
-# strategy the batter (resp. the pitcher) is to set 'v = a' (resp. 'u = a'),
+# strategy for the batter (resp. the pitcher) is to set 'v = a' (resp. 'u = a'),
 # because, for every other choice of 'v', the line 'u ↦ f(u, v)' has a non-zero
-# slope, so the pitcher can choose 'u' s.t. 'f(u, v) < f(u, a) = f(a, a)'. The
-# same reasoning applies to justify that the pitcher must choose 'v = a'.
+# slope, so the pitcher can choose 'u' s.t. 'f(u, v) < f(a, v) = f(a, a)'. The
+# same reasoning applies to justify that the pitcher must choose 'u = a'.
 #
 # To compute 'a', it suffices to compute the point where 'f' has both partial
 # derivatives equal to zero:
@@ -95,7 +95,7 @@
 #
 #   q(b, s) =
 #     q(b + 1, s) * u * v
-#     + q(b, s + 1) * (1 - u * v - (1 - u * v - (1 - u) * (1 - v) * p)
+#     + q(b, s + 1) * (1 - u * v - (1 - u) * (1 - v) * p)
 #
 #   q(3, 2) = 1
 #
